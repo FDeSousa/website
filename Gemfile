@@ -1,5 +1,9 @@
 source "https://rubygems.org"
 
+gem "mutex_m"
+gem "faraday-retry"
+gem "ostruct"
+
 gem "github-pages", group: :jekyll_plugins
 
 gem "tzinfo-data"
