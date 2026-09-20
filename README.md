@@ -1,27 +1,31 @@
-# Minimal Mistakes remote theme starter
+# just fooling around
 
-Click [**Use this template**](https://github.com/mmistakes/mm-github-pages-starter/generate) button above for the quickest method of getting started with the [Minimal Mistakes Jekyll theme](https://github.com/mmistakes/minimal-mistakes).
+Personal blog and recipe collection of Filipe De Sousa, hosted on GitHub Pages at [desousa.com.pt](https://desousa.com.pt).
 
-Contains basic configuration to get you a site with:
+- Built with [Jekyll](https://jekyllrb.com) using the [minima](https://github.com/jekyll/minima) theme.
+- Recipes are written in [Cooklang](https://cooklang.org) and converted with the [`jekyll-cooklang-converter`](https://github.com/BraeTroutman/jekyll-cooklang-converter) plugin.
+- Deployed to GitHub Pages automatically by the workflow in `.github/workflows/deploy.yml` on every push to `master`.
 
-- Sample posts.
-- Sample top navigation.
-- Sample author sidebar with social links.
-- Sample footer links.
-- Paginated home page.
-- Archive pages for posts grouped by year, category, and tag.
-- Sample about page.
-- Sample 404 page.
-- Site wide search.
+## Local development
 
-Replace sample content with your own and [configure as necessary](https://mmistakes.github.io/minimal-mistakes/docs/configuration/).
+```bash
+bundle install
+bundle exec jekyll serve
+```
 
+Then visit http://localhost:4000.
+
+## Adding a recipe
+
+Create a `.cook` file in `_recipes/` with front matter for the title (and optionally an `intro` and `note`):
+
+```text
+---
+layout: recipe
+title: My Recipe
+intro: |
+  Optional intro, supports markdown.
 ---
 
-## Troubleshooting
-
-If you have a question about using Jekyll, start a discussion on the [Jekyll Forum](https://talk.jekyllrb.com/) or [StackOverflow](https://stackoverflow.com/questions/tagged/jekyll). Other resources:
-
-- [Ruby 101](https://jekyllrb.com/docs/ruby-101/)
-- [Setting up a Jekyll site with GitHub Pages](https://jekyllrb.com/docs/github-pages/)
-- [Configuring GitHub Metadata](https://github.com/jekyll/github-metadata/blob/master/docs/configuration.md#configuration) to work properly when developing locally and avoid `No GitHub API authentication could be found. Some fields may be missing or have incorrect data.` warnings.
+Put the #kettle{} on, add @tea leaves{2%tsp}, wait ~{3%minutes}.
+```
