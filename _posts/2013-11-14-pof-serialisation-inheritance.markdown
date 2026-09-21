@@ -594,8 +594,6 @@ Having learned ever since sixth form programming lectures that I should use inhe
 
 Overall this might be considered the better approach when you are given free-reign to refactor, or are writing from the ground up. With nested or separately defined objects you're free to either implement a PofSerializer for each object, or make them PortableObjects as you wish, without as much of the hassle.
 
-Having learned ever since sixth form programming lectures that I should use inheritance all the time (they were a little extreme), it's a big change to my normal thought processes. Overall this might be considered the better approach when you are given free-reign to refactor, or are writing from the ground up. With nested or separately defined objects you're free to either implement a PofSerializer for each object, or make them PortableObjects as you wish.
-
 For backwards compatibility a newer implementation version should provide suitable defaults for attributes missing from older data, and the wholeness of data should be kept for the benefit of older versions.
 
 For forwards compatibility an older implementation version should keep the wholeness of the serialised data even for parts not recognised by the implementation.
@@ -771,6 +769,8 @@ To test the case of an old version node passing an object to a new version, the 
 To test the case of a new version node passing an object to an old version, just swap the roles and have the new implementation construct the object at the start, and check the object at the end.
 
 The process of making a class serialisable in Portable Object Format is not complicated, but can be tedious. There can be a large amount of duplicate code, making potential for errors higher, but if both the super- and sub-classes being serialised can evolve, that duplication can be the only way to implement a solution. Hopefully this post has helped in figuring out what's needed for a working implementation in other systems.
+
+## References
 
 Shan He, 27 June 2011. Understanding the evolvable POF objects in Coherence. Shanhe.me
 [http://shanhe.me/2011/06/27/understanding-the-evolvable-pof-objects-in-coherence](http://shanhe.me/2011/06/27/understanding-the-evolvable-pof-objects-in-coherence)

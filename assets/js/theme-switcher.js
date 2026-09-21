@@ -8,15 +8,12 @@
   var params = new URLSearchParams(location.search);
   var requested = params.get("theme");
 
-  function stylesheetLink() {
-    return document.querySelector('link[rel="stylesheet"][href*="main.css"]');
-  }
+  var stylesheetEl = document.querySelector('link[rel="stylesheet"][href*="/assets/main.css"]');
 
   function apply(theme) {
-    var link = stylesheetLink();
-    if (!link) return;
-    var base = link.href.split("/assets/")[0];
-    link.href = theme === "default"
+    if (!stylesheetEl) return;
+    var base = stylesheetEl.href.split("/assets/")[0];
+    stylesheetEl.href = theme === "default"
       ? base + "/assets/main.css"
       : base + "/assets/themes/" + theme + ".css";
     document.documentElement.setAttribute("data-preview-theme", theme);
