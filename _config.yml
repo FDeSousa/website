@@ -17,12 +17,6 @@ pagination:
   sort_field: date
   sort_reverse: true
 
-header_pages:
-  - about.md
-  - posts.md
-  - projects.md
-  - recipes.md
-
 minima:
   date_format: "%-d %B %Y"
 
