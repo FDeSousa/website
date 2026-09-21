@@ -1,0 +1,163 @@
+// Shared "neon" theme: high-contrast accent on near-black, CLI flavour.
+// Colour variants set $neon-* variables before importing this partial.
+@import "minima";
+
+$font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+$neon-bg: #0b0b10 !default;
+$neon-text: #e9e9ee !default;
+$neon-accent: #ff2d95 !default;
+$neon-accent-light: #ff7ac1 !default;
+$neon-accent-dim: #d61e7e !default;
+$neon-muted: #6a6a76 !default;
+$neon-border: #2a2a33 !default;
+$neon-panel: #13131a !default;
+
+body,
+input,
+.site-header nav,
+.site-footer {
+  font-family: $font-mono;
+}
+
+body {
+  background-color: $neon-bg;
+  color: $neon-text;
+  font-size: 15px;
+}
+
+.site-header {
+  border-top: none;
+  border-bottom: 1px solid $neon-border;
+  background: $neon-bg;
+}
+
+.site-title {
+  color: $neon-accent;
+
+  &::before {
+    content: "❯ ";
+    color: $neon-muted;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.site-nav .page-link {
+  color: #b9b9c3;
+
+  &::before {
+    content: "~/";
+    color: $neon-muted;
+  }
+
+  &:hover {
+    color: $neon-accent;
+    text-decoration: none;
+  }
+}
+
+a {
+  color: $neon-accent;
+
+  &:visited {
+    color: $neon-accent-dim;
+  }
+
+  &:hover {
+    color: $neon-accent-light;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $neon-accent;
+}
+
+.post-content h2::before,
+.recipe-ingredients h2::before,
+.recipe-cookware h2::before,
+.recipe-steps h2::before {
+  content: "## ";
+  color: $neon-muted;
+}
+
+.post-content h3:not(.listing-title)::before {
+  content: "### ";
+  color: $neon-muted;
+}
+
+.post-meta {
+  color: #8a8a96;
+
+  time {
+    color: $neon-accent-light;
+  }
+}
+
+.post-list-heading::before {
+  content: "> ";
+  color: $neon-muted;
+}
+
+.post-list {
+  li::marker {
+    color: $neon-accent;
+  }
+}
+
+hr {
+  border-color: $neon-border;
+}
+
+blockquote {
+  color: #b9b9c3;
+  border-left: 3px solid $neon-accent;
+  background: $neon-panel;
+  padding: $spacing-unit / 4 $spacing-unit / 2;
+  margin-left: 0;
+}
+
+code,
+pre {
+  font-family: $font-mono;
+}
+
+code {
+  background: #16161d;
+  color: $neon-accent-light;
+  border: 1px solid $neon-border;
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+pre {
+  border: 1px solid $neon-border;
+  background: $neon-panel;
+  padding: $spacing-unit / 2;
+  border-radius: 4px;
+
+  code {
+    border: none;
+    background: transparent;
+    color: $neon-text;
+    padding: 0;
+  }
+}
+
+.highlight {
+  background: $neon-panel;
+}
+
+.site-footer {
+  border-top: 1px solid $neon-border;
+  color: #8a8a96;
+}
+
+::selection {
+  background: $neon-accent;
+  color: $neon-bg;
+}
+
+@import "recipes";

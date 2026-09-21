@@ -3,7 +3,21 @@
 
   if (!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) return;
 
-  var THEMES = ["default", "neon", "paper", "poster"];
+  var THEMES = [
+    "default",
+    "neon", "neon-orange", "neon-green", "neon-yellow", "neon-cyan",
+    "paper", "poster"
+  ];
+  var LABELS = {
+    "default": "default",
+    "neon": "neon·pink",
+    "neon-orange": "neon·orange",
+    "neon-green": "neon·green",
+    "neon-yellow": "neon·yellow",
+    "neon-cyan": "neon·cyan",
+    "paper": "paper",
+    "poster": "poster"
+  };
   var STORAGE_KEY = "preview-theme";
   var params = new URLSearchParams(location.search);
   var requested = params.get("theme");
@@ -41,7 +55,7 @@
 
   THEMES.forEach(function (t) {
     var b = document.createElement("button");
-    b.textContent = t;
+    b.textContent = LABELS[t] || t;
     b.dataset.theme = t;
     b.style.cssText = "border:none;background:none;padding:2px 6px;cursor:pointer;color:#111;font:inherit;";
     b.addEventListener("click", function () {
