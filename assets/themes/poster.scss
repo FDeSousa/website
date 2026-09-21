@@ -1,0 +1,153 @@
+---
+---
+@charset "utf-8";
+
+// Preview theme: "poster" — constructivist poster look: black blocks, red bars, heavy type.
+@import "minima";
+
+$red: #d93a26;
+
+body,
+.site-header,
+.site-footer,
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #e9e6df;
+  color: #101010;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 2.4rem;
+}
+
+.site-header {
+  border-top: none;
+  background: #101010;
+  color: #e9e6df;
+  padding: $spacing-unit / 2 0;
+  margin-bottom: $spacing-unit;
+
+  .site-title {
+    color: #e9e6df;
+
+    &:hover {
+      text-decoration: none;
+      color: $red;
+    }
+  }
+
+  .site-nav .page-link {
+    color: #e9e6df;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    &:hover {
+      text-decoration: none;
+      color: $red;
+    }
+  }
+}
+
+a {
+  color: #101010;
+  text-decoration: none;
+
+  &:hover {
+    color: $red;
+  }
+}
+
+.post-title,
+.recipe .post-title {
+  background: linear-gradient(transparent 62%, #f0b429 62%);
+  display: inline;
+  box-decoration-break: clone;
+}
+
+.post-content a,
+.post-list a {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+.post-meta {
+  color: $red;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+}
+
+.post-list-heading {
+  border-bottom: 4px solid #101010;
+  display: inline-block;
+}
+
+hr {
+  border: none;
+  border-top: 4px solid #101010;
+}
+
+blockquote {
+  border-left: 6px solid $red;
+  background: #ded9cf;
+  padding: $spacing-unit / 4 $spacing-unit / 2;
+  margin-left: 0;
+  font-weight: 600;
+}
+
+code {
+  background: #101010;
+  color: #e9e6df;
+  padding: 0.1em 0.35em;
+}
+
+pre {
+  background: #101010;
+  color: #e9e6df;
+  border: none;
+  padding: $spacing-unit / 2;
+
+  code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+  }
+}
+
+.site-footer {
+  background: #101010;
+  color: #e9e6df;
+  margin-top: $spacing-unit * 2;
+
+  a {
+    color: #e9e6df;
+    text-decoration: underline;
+  }
+
+  .footer-col-wrapper {
+    color: #e9e6df;
+  }
+
+  .footer-heading {
+    color: $red;
+  }
+}
+
+::selection {
+  background: $red;
+  color: #e9e6df;
+}
+
+@import "recipes";

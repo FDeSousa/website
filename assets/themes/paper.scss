@@ -1,0 +1,114 @@
+---
+---
+@charset "utf-8";
+
+// Preview theme: "paper" — warm editorial, cream paper and riso-red ink.
+@import "minima";
+
+$ink: #221d12;
+$riso: #b23a2e;
+
+body,
+.site-header,
+.site-footer,
+h1, h2, h3, h4, h5, h6,
+code, pre {
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+}
+
+body {
+  background-color: #f8f2e4;
+  color: $ink;
+}
+
+.site-header {
+  border-top: none;
+  border-bottom: 4px double $ink;
+}
+
+.site-title {
+  color: $ink;
+
+  &:hover {
+    text-decoration: none;
+    color: $riso;
+  }
+}
+
+a {
+  color: $riso;
+  text-underline-offset: 2px;
+
+  &:visited {
+    color: #8a2e24;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $ink;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 2.1rem;
+}
+
+.post-content h2,
+.recipe-ingredients h2,
+.recipe-cookware h2,
+.recipe-steps h2 {
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid #d9cdae;
+}
+
+.post-meta {
+  color: $riso;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+}
+
+.post-list-heading {
+  font-variant: small-caps;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #d9cdae;
+}
+
+blockquote {
+  color: #4a4234;
+  border-left: 3px solid $riso;
+  font-style: italic;
+  background: #f1e8d2;
+  padding: $spacing-unit / 4 $spacing-unit / 2;
+  margin-left: 0;
+}
+
+code {
+  background: #efe5cc;
+  border-radius: 2px;
+  padding: 0.1em 0.3em;
+}
+
+pre {
+  border: none;
+  border-left: 3px solid $riso;
+  background: #efe5cc;
+  padding: $spacing-unit / 2;
+  margin-left: 0;
+}
+
+.site-footer {
+  border-top: 4px double $ink;
+  color: #5f574a;
+}
+
+::selection {
+  background: $riso;
+  color: #f8f2e4;
+}
+
+@import "recipes";

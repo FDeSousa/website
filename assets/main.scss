@@ -1,35 +1,7 @@
+---
+---
 @charset "utf-8";
 
-// Import partials from the minima theme.
+// Default theme: minima plus recipe styles.
 @import "minima";
-
-// Recipe pages (converted from Cooklang)
-.recipe-intro {
-  margin-bottom: $spacing-unit;
-}
-
-.recipe-ingredients,
-.recipe-cookware,
-.recipe-steps {
-  margin-top: $spacing-unit;
-  margin-bottom: $spacing-unit;
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  ul,
-  ol {
-    margin-bottom: $spacing-unit / 2;
-    padding-left: 1.5em;
-  }
-
-  li {
-    margin-bottom: $spacing-unit / 5;
-  }
-
-  em.quantity {
-    font-style: normal;
-    font-weight: 600;
-  }
-}
+@import "recipes";
