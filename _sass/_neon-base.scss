@@ -96,9 +96,17 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.post-list-heading::before {
+.post:not(.h-entry) .post-title::before {
   content: "> ";
   color: $neon-muted;
+}
+
+.pager {
+  margin: $spacing-unit 0;
+
+  a {
+    margin-right: $spacing-unit / 2;
+  }
 }
 
 .post-list {

@@ -1,0 +1,29 @@
+---
+layout: default
+---
+{%- assign latest = site.posts.first -%}
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ latest.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ latest.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ latest.date | date: date_format }}
+      </time>
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ latest.content }}
+  </div>
+
+  <a class="u-url" href="{{ latest.url | relative_url }}" hidden></a>
+</article>
+
+{%- if site.posts[1] -%}
+<div class="pager">
+  <a href="{{ site.posts[1].url | relative_url }}">next →</a>
+</div>
+{%- endif -%}

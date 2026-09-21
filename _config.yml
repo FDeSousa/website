@@ -12,8 +12,9 @@ timezone: Europe/London
 
 header_pages:
   - about.md
-  - recipes.md
+  - posts.md
   - projects.md
+  - recipes.md
 
 minima:
   date_format: "%-d %B %Y"
@@ -21,6 +22,7 @@ minima:
 plugins:
   - jekyll-cooklang-converter
   - jekyll-feed
+  - jekyll-paginate-v2
   - jekyll-seo-tag
 
 # Collections
