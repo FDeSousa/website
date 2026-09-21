@@ -15,11 +15,10 @@
   function apply(theme) {
     var link = stylesheetLink();
     if (!link) return;
-    if (theme === "default") {
-      link.href = link.href.replace(/themes\/[^?]*\.css/, "main.css");
-    } else {
-      link.href = link.href.replace(/main\.css.*$/, "themes/" + theme + ".css");
-    }
+    var base = link.href.split("/assets/")[0];
+    link.href = theme === "default"
+      ? base + "/assets/main.css"
+      : base + "/assets/themes/" + theme + ".css";
     document.documentElement.setAttribute("data-preview-theme", theme);
   }
 
