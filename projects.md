@@ -10,9 +10,9 @@ A few things I've built. More to come.
   {% for project in site.projects %}
     <li>
       <h3 class="listing-title">
-        <a class="post-link" href="{{ project.url | relative_url }}">{{ project.title | escape }}</a>
+        <a class="post-link" href="{{ project.repo }}">{{ project.title | escape }}</a>
       </h3>
-      {% if project.excerpt %}<p>{{ project.excerpt | strip_html | truncate: 140 }}</p>{% endif %}
+      {% if project.blurb %}<p>{{ project.blurb }}</p>{% endif %}
     </li>
   {% endfor %}
 </ul>

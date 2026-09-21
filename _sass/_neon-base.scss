@@ -109,6 +109,26 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.tree-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+
+  li {
+    margin-bottom: 0;
+  }
+
+  li::before {
+    content: "├── ";
+    color: $neon-muted;
+    white-space: pre;
+  }
+
+  li:last-child::before {
+    content: "└── ";
+  }
+}
+
 .post-list {
   li::marker {
     color: $neon-accent;

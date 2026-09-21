@@ -1,7 +1,7 @@
 # Site settings
 title: "// TODO: title"
 description: >-
-  Blog and recipes.
+  Blog and recipes by Filipe
 url: "https://desousa.com.pt"
 
 # Build settings
@@ -32,8 +32,7 @@ collections:
     output: true
     permalink: /recipes/:path/
   projects:
-    output: true
-    permalink: /projects/:path/
+    output: false
 
 defaults:
   - scope:
@@ -46,11 +45,6 @@ defaults:
       type: recipes
     values:
       layout: recipe
-  - scope:
-      path: ""
-      type: projects
-    values:
-      layout: page
 
 # Files that shouldn't end up on the site
 exclude:
