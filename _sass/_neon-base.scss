@@ -156,6 +156,40 @@ pre {
 
 .highlight {
   background: $neon-panel;
+
+  .highlighter-rouge & {
+    background: $neon-panel;
+  }
+
+  pre {
+    background: $neon-panel;
+    color: $neon-text;
+    border: none;
+    margin-bottom: 0;
+  }
+
+  code {
+    color: $neon-text;
+  }
+
+  .c, .cm, .c1, .cs, .ge { color: $neon-muted; font-style: italic; }
+  .cp { color: $neon-muted; font-weight: 600; font-style: normal; }
+  .k, .kc, .kd, .kp, .kr, .kv, .kn, .kt, .ow { color: $neon-accent; font-weight: 600; }
+  .o { font-weight: 600; }
+  .m, .mf, .mi, .mh, .mx, .il, .mo { color: #ffb86c; }
+  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx, .sr, .sds, .ld { color: #a5e88f; }
+  .na, .nb, .nc, .nd, .ne, .nf, .ni, .nl, .nn, .no, .nt, .nv, .nx, .vc, .vg, .vi, .vm { color: $neon-accent-light; }
+  .err { color: #ff6b6b; background: transparent; }
+  .gd { color: #ff6b6b; background: transparent; }
+  .gi { color: #a5e88f; background: transparent; }
+  .gs { font-weight: 700; }
+  .gu, .gp, .go { color: $neon-muted; }
+  .gt { color: #ff6b6b; }
+  .w, .l, .lL { color: $neon-text; }
+}
+
+pre {
+  overflow-x: auto;
 }
 
 .site-footer {
