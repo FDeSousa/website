@@ -1,8 +1,10 @@
 ---
 layout: page
-title: Recipes
+title: recipes
 permalink: /recipes/
 ---
+
+Recipes written in Cooklang. Plain text that'll still parse in 30 years.
 
 <ul class="post-list">
   {% for recipe in site.recipes %}

@@ -1,7 +1,7 @@
 # Site settings
-title: Just fooling around
+title: "// TODO: title"
 description: >-
-  Filipe's blog and recipe collection. Recipes are written in Cooklang.
+  Blog and recipes.
 url: "https://desousa.com.pt"
 
 # Build settings
@@ -13,6 +13,7 @@ timezone: Europe/London
 header_pages:
   - about.md
   - recipes.md
+  - projects.md
 
 minima:
   date_format: "%-d %B %Y"
@@ -27,6 +28,9 @@ collections:
   recipes:
     output: true
     permalink: /recipes/:path/
+  projects:
+    output: true
+    permalink: /projects/:path/
 
 defaults:
   - scope:
@@ -39,6 +43,11 @@ defaults:
       type: recipes
     values:
       layout: recipe
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: page
 
 # Files that shouldn't end up on the site
 exclude:
