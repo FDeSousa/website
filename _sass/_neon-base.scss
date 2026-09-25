@@ -113,18 +113,30 @@ h1, h2, h3, h4, h5, h6 {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
+  font-family: $font-mono;
 
   li {
     margin-bottom: 0;
   }
 
-  li::before {
+  > li {
+    margin-bottom: $spacing-unit / 4;
+  }
+
+  ul {
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  ul li::before {
     content: "├── ";
     color: $neon-muted;
     white-space: pre;
   }
 
-  li:last-child::before {
+  ul li:last-child::before {
     content: "└── ";
   }
 }
