@@ -9,7 +9,8 @@ group :jekyll_plugins do
   gem "jekyll-cooklang-converter"
   gem "jekyll-feed"
   gem "jekyll-paginate-v2"
-  gem "jekyll-seo-tag"
+  gem "jekyll-sitemap"
+  gem "jekyll-seo-tag", "~> 2.9"
 end
 
 # Windows compatibility (safe to include on macOS/Linux)

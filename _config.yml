@@ -24,7 +24,11 @@ plugins:
   - jekyll-cooklang-converter
   - jekyll-feed
   - jekyll-paginate-v2
+  - jekyll-sitemap
   - jekyll-seo-tag
+
+# SEO / social
+logo: /assets/og-image.svg
 
 # Collections
 collections:
