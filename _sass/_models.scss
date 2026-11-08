@@ -98,6 +98,11 @@
     padding: .5rem .6rem;
     border-bottom: 1px solid $neon-border;
     vertical-align: top;
+    color: $neon-text; // near-white: links keep accent, data cells stay readable
+  }
+
+  thead th {
+    color: $neon-text;
   }
 
   tbody tr:nth-child(even) {
@@ -154,7 +159,7 @@
 
 .models-org {
   display: block;
-  color: $neon-muted;
+  color: #9c9ca6;
   font-size: .65rem;
   font-weight: 400;
   margin-top: .1rem;
@@ -175,7 +180,7 @@
 
 .status-current   { color: #a5e88f; }
 .status-superseded { color: #ffb86c; }
-.status-legacy    { color: $neon-muted; }
+.status-legacy    { color: #9c9ca6; }
 .status-gated     { color: #e9e685; }
 .status-research  { color: #ff6b6b; }
 .status-demo      { color: #ff9ecb; }
