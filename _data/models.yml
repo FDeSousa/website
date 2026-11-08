@@ -1,0 +1,883 @@
+# Model reference data for the /models/ page.
+# Hand-curated from Hugging Face cards, vendor blogs, arXiv and OpenRouter.
+# All linked sources are on the page itself. Data checked 2026-11-08.
+#
+# Columns map 1:1 onto the rendered header row:
+#   name/url · released · type · params · ~int4 · context · modes · think · bench · license · best_for · status
+# type ∈ {llm, vlm, stt, speaker}  (filter chips on the page)
+# think  ∈ {yes, opt, no, ~}       (~ = not applicable)
+# status ∈ current | superseded | legacy | gated | research | demo   (rendered as /models/ chips)
+# size_gb is decimal GB at rough int4 (~0.55 GB per billion params), excluding KV cache and runtime.
+# Where a vendor number is used it is marked with † on the page rather than here.
+
+# ── small general LLMs (text) ────────────────────────────────────────────────
+
+- name: Qwen3-0.6B
+  org: Alibaba
+  url: https://huggingface.co/Qwen/Qwen3-0.6B
+  type: llm
+  released: '2025-04'
+  params_b: 0.6
+  params_label: 0.6B
+  size_gb: 0.33
+  size_label: '~0.3 GB'
+  context_raw: 32768
+  context_label: 32K
+  modes: 'text → text'
+  think: opt
+  bench: 'MMLU 52.8'
+  license: Apache-2.0
+  best_for: 'tiniest reasoner; offline chat'
+  status: superseded
+
+- name: Qwen3-1.7B
+  org: Alibaba
+  url: https://huggingface.co/Qwen/Qwen3-1.7B
+  type: llm
+  released: '2025-04'
+  params_b: 1.7
+  params_label: 1.7B
+  size_gb: 0.94
+  size_label: '~0.9 GB'
+  context_raw: 32768
+  context_label: 32K
+  modes: 'text → text'
+  think: opt
+  bench: 'MMLU 62.6'
+  license: Apache-2.0
+  best_for: 'small reasoning; on-device chat'
+  status: superseded
+
+- name: Qwen3-4B
+  org: Alibaba
+  url: https://huggingface.co/Qwen/Qwen3-4B
+  type: llm
+  released: '2025-04'
+  params_b: 4.0
+  params_label: 4B
+  size_gb: 2.2
+  size_label: '~2.2 GB'
+  context_raw: 32768
+  context_label: 32K (128K YaRN)
+  modes: 'text → text'
+  think: opt
+  bench: 'MMLU 73.0'
+  license: Apache-2.0
+  best_for: 'best ≤4B 2025 reasoner (pre-3.5)'
+  status: superseded
+
+- name: Llama-3.2-1B-Instruct
+  org: Meta
+  url: https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct
+  type: llm
+  released: '2024-09'
+  params_b: 1.23
+  params_label: 1.23B
+  size_gb: 0.68
+  size_label: '~0.7 GB'
+  context_raw: 131072
+  context_label: 128K
+  modes: 'text → text'
+  think: no
+  bench: 'MMLU 49.3'
+  license: Llama 3.2 Community
+  best_for: 'weakest Llama; do not expect miracles'
+  status: current
+
+- name: Llama-3.2-3B-Instruct
+  org: Meta
+  url: https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct
+  type: llm
+  released: '2024-09'
+  params_b: 3.21
+  params_label: 3.2B
+  size_gb: 1.77
+  size_label: '~1.8 GB'
+  context_raw: 131072
+  context_label: 128K
+  modes: 'text → text'
+  think: no
+  bench: 'MMLU 63.4'
+  license: Llama 3.2 Community
+  best_for: 'safe cross-HW default; 128K ctx'
+  status: current
+
+- name: Gemma-3-1B-it
+  org: Google
+  url: https://huggingface.co/google/gemma-3-1b-it
+  type: llm
+  released: '2025-03'
+  params_b: 1.0
+  params_label: 1B
+  size_gb: 0.55
+  size_label: '~0.5 GB'
+  context_raw: 32768
+  context_label: 32K
+  modes: 'text → text'
+  think: no
+  bench: 'HellaSwag 62.3 (10-shot)'
+  license: Gemma terms
+  best_for: 'tiny English-centric tasks'
+  status: superseded
+
+- name: SmolLM3-3B
+  org: Hugging Face
+  url: https://huggingface.co/HuggingFaceTB/SmolLM3-3B
+  type: llm
+  released: '2025-07'
+  params_b: 3.0
+  params_label: 3B
+  size_gb: 1.7
+  size_label: '~1.7 GB'
+  context_raw: 65536
+  context_label: 64K (128K YaRN)
+  modes: 'text → text'
+  think: opt
+  bench: "AIME'25 36.7 † · Global MMLU 64.1"
+  license: Apache-2.0
+  best_for: 'reasoning + no-think chat in one model'
+  status: current
+
+- name: Phi-4-mini-instruct
+  org: Microsoft
+  url: https://huggingface.co/microsoft/Phi-4-mini-instruct
+  type: llm
+  released: '2025-02'
+  params_b: 3.8
+  params_label: 3.8B
+  size_gb: 2.1
+  size_label: '~2.1 GB'
+  context_raw: 131072
+  context_label: 128K
+  modes: 'text → text'
+  think: no
+  bench: 'MMLU 67.3'
+  license: MIT
+  best_for: 'strong bench-per-GB; English-first'
+  status: current
+
+- name: Phi-4-mini-reasoning
+  org: Microsoft
+  url: https://huggingface.co/microsoft/Phi-4-mini-reasoning
+  type: llm
+  released: '2025-04'
+  params_b: 3.8
+  params_label: 3.8B
+  size_gb: 2.1
+  size_label: '~2.1 GB'
+  context_raw: 131072
+  context_label: 128K
+  modes: 'text → text'
+  think: yes
+  bench: "AIME'24 57.5"
+  license: MIT
+  best_for: 'math-grade chain-of-thought on phone'
+  status: current
+
+- name: DeepSeek-R1-Distill-Qwen-1.5B
+  org: DeepSeek
+  url: https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
+  type: llm
+  released: '2025-01'
+  params_b: 1.5
+  params_label: 1.5B
+  size_gb: 0.83
+  size_label: '~0.8 GB'
+  context_raw: 131072
+  context_label: 128K*
+  modes: 'text → text'
+  think: yes
+  bench: "AIME'24 28.9 · MATH-500 83.9"
+  license: MIT
+  best_for: 'long CoT at 0.8 GB; no toggle'
+  status: current
+
+- name: MiniCPM5-2B
+  org: OpenBMB
+  url: https://huggingface.co/openbmb/MiniCPM5-2B
+  type: llm
+  released: '2026-09'
+  params_b: 2.0
+  params_label: 2B
+  size_gb: 1.4
+  size_label: '~1.4 GB'
+  context_raw: 131072
+  context_label: 128K
+  modes: 'text → text'
+  think: opt
+  bench: "AIME'25 86.5 †"
+  license: Apache-2.0
+  best_for: '2026 small reasoner; EN/ZH'
+  status: current
+
+- name: LFM3-1.7B
+  org: Liquid AI
+  url: https://huggingface.co/LiquidAI/LFM3-1.7B
+  type: llm
+  released: '2026-10'
+  params_b: 1.73
+  params_label: 1.73B
+  size_gb: 0.95
+  size_label: '~1.0 GB'
+  context_raw: 262144
+  context_label: 256K
+  modes: 'text → text'
+  think: opt
+  bench: 'LiveCodeBench 73.5 † · GPQA 63.4 †'
+  license: LFM Open License v1.0 (<$10M rev)
+  best_for: 'edge optimised; hybrid fast path'
+  status: current
+
+# ── small native-multimodal / vision models (image · video in) ───────────────
+
+- name: Qwen3-VL-2B-Instruct
+  org: Alibaba
+  url: https://huggingface.co/Qwen/Qwen3-VL-2B-Instruct
+  type: vlm
+  released: '2025-10'
+  params_b: 2.13
+  params_label: 2.1B
+  size_gb: 1.2
+  size_label: '~1.2 GB'
+  context_raw: 262144
+  context_label: 256K
+  modes: 'text · image · video → text'
+  think: opt
+  bench: 'MMMU 53.4 · DocVQA 93.3'
+  license: Apache-2.0
+  best_for: 'best 2025 sub-2B multimodal'
+  status: current
+
+- name: Qwen3-VL-4B-Instruct
+  org: Alibaba
+  url: https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct
+  type: vlm
+  released: '2025-10'
+  params_b: 4.44
+  params_label: 4.4B
+  size_gb: 2.4
+  size_label: '~2.4 GB'
+  context_raw: 262144
+  context_label: 256K
+  modes: 'text · image · video → text'
+  think: opt
+  bench: 'MMMU 67.4 · DocVQA 95.3 · Video-MME 69.3'
+  license: Apache-2.0
+  best_for: 'video LLM for 8 GiB phones'
+  status: current
+
+- name: Qwen3.5-0.8B
+  org: Alibaba
+  url: https://huggingface.co/Qwen/Qwen3.5-0.8B
+  type: vlm
+  released: '2026-02'
+  params_b: 0.87
+  params_label: 0.8B
+  size_gb: 0.5
+  size_label: '~0.5 GB'
+  context_raw: 262144
+  context_label: 256K
+  modes: 'text · image · video → text'
+  think: opt
+  bench: 'MMLU-Pro 42.3 (T) / 29.7 (NT)'
+  license: Apache-2.0
+  best_for: 'smallest native multimodal'
+  status: current
+
+- name: Qwen3.5-2B
+  org: Alibaba
+  url: https://huggingface.co/Qwen/Qwen3.5-2B
+  type: vlm
+  released: '2026-02'
+  params_b: 2.27
+  params_label: 2.3B
+  size_gb: 1.3
+  size_label: '~1.3 GB'
+  context_raw: 262144
+  context_label: 256K
+  modes: 'text · image · video → text'
+  think: opt
+  bench: 'MMLU-Pro 66.5 (T) · MMMU 64.2'
+  license: Apache-2.0
+  best_for: 'recommended small VLM, 2026 line'
+  status: current
+
+- name: Qwen3.5-4B
+  org: Alibaba
+  url: https://huggingface.co/Qwen/Qwen3.5-4B
+  type: vlm
+  released: '2026-02'
+  params_b: 4.66
+  params_label: 4.7B
+  size_gb: 2.6
+  size_label: '~2.6 GB'
+  context_raw: 262144
+  context_label: 256K (1M YaRN)
+  modes: 'text · image · video → text'
+  think: opt
+  bench: 'MMLU-Pro 79.1 (T) · MMMU 77.6'
+  license: Apache-2.0
+  best_for: 'strongest ≤4B multimodal, thinking'
+  status: current
+
+- name: Gemma-3-4B-it
+  org: Google
+  url: https://huggingface.co/google/gemma-3-4b-it
+  type: vlm
+  released: '2025-03'
+  params_b: 4.3
+  params_label: 4.3B
+  size_gb: 2.4
+  size_label: '~2.4 GB'
+  context_raw: 131072
+  context_label: 128K
+  modes: 'text · image → text'
+  think: no
+  bench: 'MMLU 59.6 (PT, 5-shot)'
+  license: Gemma terms
+  best_for: 'hosted cheap ($0.05/$0.10/M) else skip'
+  status: superseded
+
+- name: Gemma-3n-E2B-it
+  org: Google
+  url: https://huggingface.co/google/gemma-3n-E2B-it
+  type: vlm
+  released: '2025-06'
+  params_b: 5.44
+  params_label: 2B eff (5.1 w/ emb)
+  size_gb: 1.1
+  size_label: '~1.1 GB eff (~3.0 full)'
+  context_raw: 32768
+  context_label: 32K
+  modes: 'text · image · video · audio → text'
+  think: no
+  bench: 'MMLU (0-shot) 60.1'
+  license: Gemma terms
+  best_for: 'omni on-device: image+audio in'
+  status: current
+
+- name: Gemma-3n-E4B-it
+  org: Google
+  url: https://huggingface.co/google/gemma-3n-E4B-it
+  type: vlm
+  released: '2025-06'
+  params_b: 7.85
+  params_label: 4B eff (7.9 w/ emb)
+  size_gb: 2.2
+  size_label: '~2.2 GB eff (~4.3 full)'
+  context_raw: 32768
+  context_label: 32K
+  modes: 'text · image · video · audio → text'
+  think: no
+  bench: 'MMLU (0-shot) 64.9'
+  license: Gemma terms
+  best_for: 'omni with better quality than E2B'
+  status: current
+
+- name: Gemma-4-E2B-it
+  org: Google
+  url: https://huggingface.co/google/gemma-4-E2B-it
+  type: vlm
+  released: '2026-04'
+  params_b: 5.12
+  params_label: 2.3B eff (5.1 w/ emb)
+  size_gb: 1.3
+  size_label: '~1.3 GB eff (~2.8 full)'
+  context_raw: 131072
+  context_label: 128K
+  modes: 'text · image · video · audio → text'
+  think: opt
+  bench: 'MMLU-Pro 60.0 · MMMU-Pro 44.2'
+  license: Apache-2.0
+  best_for: 'omni open Apache on-device 2026'
+  status: current
+
+- name: Gemma-4-E4B-it
+  org: Google
+  url: https://huggingface.co/google/gemma-4-E4B-it
+  type: vlm
+  released: '2026-04'
+  params_b: 8.0
+  params_label: 4.5B eff (8.0 w/ emb)
+  size_gb: 2.5
+  size_label: '~2.5 GB eff (~4.4 full)'
+  context_raw: 131072
+  context_label: 128K
+  modes: 'text · image · video · audio → text'
+  think: opt
+  bench: 'MMLU-Pro 69.4 · MMMU-Pro 52.6'
+  license: Apache-2.0
+  best_for: 'omni for capable phones; E2B tier better fit'
+  status: current
+
+- name: LFM3-VL-2B
+  org: Liquid AI
+  url: https://huggingface.co/LiquidAI/LFM3-VL-2B
+  type: vlm
+  released: '2026-10'
+  params_b: 1.92
+  params_label: 1.9B
+  size_gb: 1.1
+  size_label: '~1.1 GB'
+  context_raw: 131072
+  context_label: 128K
+  modes: 'text · image · video → text'
+  think: opt
+  bench: 'MMMU 55.7 † · DocVQA 96.7 † · Video-MME 62.8 †'
+  license: LFM Open License v1.0 (<$10M rev)
+  best_for: 'on-phone VLM edge (S26/OnePlus tested)'
+  status: current
+
+- name: LFM3-Omni-2B
+  org: Liquid AI
+  url: https://huggingface.co/LiquidAI/LFM3-Omni-2B
+  type: vlm
+  released: '2026-10'
+  params_b: 2.17
+  params_label: 2.2B
+  size_gb: 1.2
+  size_label: '~1.2 GB'
+  context_raw: 32768
+  context_label: 32K
+  modes: 'text · image · video · audio → text · speech'
+  think: no
+  bench: 'MMMU 42.4 † · EN-ASR WER 6.4 †'
+  license: LFM Open License v1.0 (<$10M rev)
+  best_for: 'full omni incl. speech output'
+  status: current
+
+- name: SmolVLM2-256M-Video-Instruct
+  org: Hugging Face
+  url: https://huggingface.co/HuggingFaceTB/SmolVLM2-256M-Video-Instruct
+  type: vlm
+  released: '2025-02'
+  params_b: 0.256
+  params_label: 256M
+  size_gb: 0.14
+  size_label: '~0.14 GB'
+  context_raw: 8192
+  context_label: 8K
+  modes: 'text · image · video → text'
+  think: no
+  bench: 'Video-MME 33.7'
+  license: Apache-2.0
+  best_for: 'video captioning on the weakest HW'
+  status: current
+
+- name: SmolVLM2-500M-Video-Instruct
+  org: Hugging Face
+  url: https://huggingface.co/HuggingFaceTB/SmolVLM2-500M-Video-Instruct
+  type: vlm
+  released: '2025-02'
+  params_b: 0.507
+  params_label: 500M
+  size_gb: 0.28
+  size_label: '~0.28 GB'
+  context_raw: 8192
+  context_label: 8K
+  modes: 'text · image · video → text'
+  think: no
+  bench: 'Video-MME 42.2'
+  license: Apache-2.0
+  best_for: 'cheap visual QA; 8 GB HW'
+  status: current
+
+- name: SmolVLM2-2.2B-Instruct
+  org: Hugging Face
+  url: https://huggingface.co/HuggingFaceTB/SmolVLM2-2.2B-Instruct
+  type: vlm
+  released: '2025-02'
+  params_b: 2.25
+  params_label: 2.2B
+  size_gb: 1.24
+  size_label: '~1.2 GB'
+  context_raw: 8192
+  context_label: 8K
+  modes: 'text · image · video → text'
+  think: no
+  bench: 'MMMU 42.0 · DocVQA 80.0 · Video-MME 52.1'
+  license: Apache-2.0
+  best_for: 'all-round open video VLM (8K ctx)'
+  status: current
+
+- name: MiniCPM-V-4.7-1B
+  org: OpenBMB
+  url: https://huggingface.co/openbmb/MiniCPM-V-4.7-1B
+  type: vlm
+  released: '2026-10'
+  params_b: 1.55
+  params_label: 1.6B
+  size_gb: 0.9
+  size_label: '~0.9 GB'
+  context_raw: 262144
+  context_label: 256K
+  modes: 'text · image · video → text'
+  think: no
+  bench: 'MMMU 56.9 · OCRBench 86.1'
+  license: Apache-2.0
+  best_for: 'recommended OCR/vision for phones'
+  status: current
+
+- name: MiniCPM-OCR-1.0
+  org: OpenBMB
+  url: https://huggingface.co/openbmb/MiniCPM-OCR-1.0
+  type: vlm
+  released: '2026-10'
+  params_b: 1.3
+  params_label: 1.3B
+  size_gb: 0.7
+  size_label: '~0.7 GB'
+  context_raw: 0
+  context_label: '—'
+  modes: 'text · image → text'
+  think: no
+  bench: 'Real5-OmniDocBench 93.68 †'
+  license: Apache-2.0
+  best_for: 'specialist document/OCR parsing'
+  status: current
+
+- name: Ministral-3-3B-2512
+  org: Mistral
+  url: https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512
+  type: vlm
+  released: '2025-12'
+  params_b: 3.85
+  params_label: 3.4B LM + 0.4B ViT
+  size_gb: 2.1
+  size_label: '~2.1 GB'
+  context_raw: 256000
+  context_label: 256K (131K hosted)
+  modes: 'text · image → text'
+  think: opt
+  bench: 'MMLU (base) 70.7 · AIME-25 72.1 (Reasoning)'
+  license: Apache-2.0
+  best_for: 'edge dense VLM; strong EN/FR'
+  status: current
+
+# ── speech-to-text (audio in → text out) ─────────────────────────────────────
+
+- name: Moonshine-tiny · base
+  org: Useful Sensors
+  url: https://huggingface.co/moonshine-ai/moonshine-tiny
+  type: stt
+  released: '2024-10'
+  params_b: 0.027
+  params_label: '27M · 62M'
+  size_gb: 0.02
+  size_label: '~0.02–0.06 GB'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → text'
+  think: '~'
+  bench: 'WER 12.7 † (tiny, Open-ASR)'
+  license: MIT
+  best_for: 'live captions / push-to-talk'
+  status: current
+
+- name: Whisper-tiny
+  org: OpenAI
+  url: https://huggingface.co/openai/whisper-tiny
+  type: stt
+  released: '2022-09'
+  params_b: 0.038
+  params_label: 38M
+  size_gb: 0.02
+  size_label: '~0.02 GB'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → text (99 langs)'
+  think: '~'
+  bench: 'WER 7.5 / 17.2 (clean/other)'
+  license: Apache-2.0
+  best_for: 'smallest multilingual ASR ever'
+  status: current
+
+- name: Whisper-base
+  org: OpenAI
+  url: https://huggingface.co/openai/whisper-base
+  type: stt
+  released: '2022-09'
+  params_b: 0.073
+  params_label: 73M
+  size_gb: 0.04
+  size_label: '~0.04 GB'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → text (99 langs)'
+  think: '~'
+  bench: 'WER 5.0 / 12.9'
+  license: Apache-2.0
+  best_for: 'small but real multilingual ASR'
+  status: current
+
+- name: Whisper-small
+  org: OpenAI
+  url: https://huggingface.co/openai/whisper-small
+  type: stt
+  released: '2022-09'
+  params_b: 0.242
+  params_label: 242M
+  size_gb: 0.12
+  size_label: '~0.12 GB'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → text (99 langs)'
+  think: '~'
+  bench: 'WER 3.4 / 7.6'
+  license: Apache-2.0
+  best_for: 'solid general-purpose ASR (99 langs)'
+  status: current
+
+- name: Whisper large-v3-turbo
+  org: OpenAI
+  url: https://huggingface.co/openai/whisper-large-v3-turbo
+  type: stt
+  released: '2024-10'
+  params_b: 0.809
+  params_label: 809M
+  size_gb: 0.4
+  size_label: '~0.4 GB'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → text (99 langs)'
+  think: '~'
+  bench: 'WER 7.83 † (Open-ASR mean)'
+  license: MIT
+  best_for: 'accuracy-favouring 8 GiB ASR'
+  status: current
+
+- name: Distil-Whisper large-v3
+  org: Hugging Face
+  url: https://huggingface.co/distil-whisper/distil-large-v3
+  type: stt
+  released: '2024-03'
+  params_b: 0.756
+  params_label: 756M
+  size_gb: 0.38
+  size_label: '~0.38 GB'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → text (EN only)'
+  think: '~'
+  bench: 'WER 9.7 (ESB short-form)'
+  license: MIT
+  best_for: 'English long-form transcription'
+  status: current
+
+- name: Qwen3-ASR-0.6B
+  org: Alibaba
+  url: https://huggingface.co/Qwen/Qwen3-ASR-0.6B
+  type: stt
+  released: '2026-01'
+  params_b: 0.938
+  params_label: '782–938M'
+  size_gb: 0.47
+  size_label: '~0.47 GB'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → text (30 langs + 22 dialects)'
+  think: '~'
+  bench: 'WER 1.7 / 4.0 (Open-ASR 6/2026)'
+  license: Apache-2.0
+  best_for: '2026 recommended multilingual ASR'
+  status: current
+
+- name: SenseVoice-Small
+  org: Alibaba (FunAudioLLM)
+  url: https://huggingface.co/FunAudioLLM/SenseVoiceSmall
+  type: stt
+  released: '2024-07'
+  params_b: 0.234
+  params_label: ~234M
+  size_gb: 0.12
+  size_label: '~0.12 GB'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → text (5 langs) + events · emotion'
+  think: '~'
+  bench: 'WER 3.15 / 7.18'
+  license: FunASR license (free w/ conditions)
+  best_for: 'ZH/EN/YUE/JA/KO + emotion tags'
+  status: current
+
+- name: Parakeet-TDT-0.6B-v3
+  org: NVIDIA
+  url: https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3
+  type: stt
+  released: '2025-08'
+  params_b: 0.627
+  params_label: 627M
+  size_gb: 0.71
+  size_label: '~0.32 GB (q8_0 GGUF 0.71)'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → text (25 EU langs)'
+  think: '~'
+  bench: 'WER 1.93 / 3.59'
+  license: CC-BY-4.0
+  best_for: 'fastest EU/EN ASR on GGUF'
+  status: current
+
+- name: Canary-1B-v2
+  org: NVIDIA
+  url: https://huggingface.co/nvidia/canary-1b-v2
+  type: stt
+  released: '2025-08'
+  params_b: 0.978
+  params_label: 978M
+  size_gb: 0.49
+  size_label: '~0.49 GB'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → text (25 EU langs)'
+  think: '~'
+  bench: 'UNVERIFIED — see card'
+  license: CC-BY-4.0
+  best_for: 'EN+DE/FR/ES ASR+translate 4L'
+  status: current
+
+# ── active speaker / diarization (audio → who spoke when) ────────────────────
+
+- name: Light-ASD (audio-visual)
+  org: LHL
+  url: https://github.com/Junhua-Liao/Light-ASD
+  type: speaker
+  released: '2023-06'
+  params_b: 0.001
+  params_label: 1.0M
+  size_gb: 0.001
+  size_label: '~1 MB'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio + video (faces) → speaker'
+  think: '~'
+  bench: 'mAP 94.1 (AVA-ASD)'
+  license: MIT
+  best_for: 'research-only; no mobile build'
+  status: research
+
+- name: pyannote/segmentation-3.0
+  org: pyannote
+  url: https://huggingface.co/pyannote/segmentation-3.0
+  type: speaker
+  released: '2023-09'
+  params_b: 0.0015
+  params_label: ~1.5M
+  size_gb: 0.002
+  size_label: '~2 MB int8'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → speech segments'
+  think: '~'
+  bench: 'component — see community-1 pipeline'
+  license: MIT — gated (accept conditions)
+  best_for: 'segmentation block for sherpa-onnx'
+  status: gated
+
+- name: Speaker-diarization 3.1 (legacy)
+  org: pyannote
+  url: https://huggingface.co/pyannote/speaker-diarization-3.1
+  type: speaker
+  released: '2023-11'
+  params_b: 0.033
+  params_label: 'seg 1.5M + emb 6.6M'
+  size_gb: 0.033
+  size_label: '~33 MB'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → who spoke when'
+  think: '~'
+  bench: 'DER 18.8 (IHM) / 22.7 (SDM)'
+  license: MIT — gated (accept conditions)
+  best_for: 'supersedes nothing — use community-1'
+  status: legacy
+
+- name: Speaker-diarization community-1
+  org: pyannote
+  url: https://huggingface.co/pyannote/speaker-diarization-community-1
+  type: speaker
+  released: '2025-04'
+  params_b: 0.033
+  params_label: 'seg + emb'
+  size_gb: 0.033
+  size_label: '~33 MB'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → who spoke when'
+  think: '~'
+  bench: 'DER 17.0 (IHM) / 19.9 (SDM)'
+  license: CC-BY-4.0 — gated
+  best_for: 'offline diarization reference pipeline'
+  status: gated
+
+- name: WeSpeaker CAM++ (embeddings)
+  org: WeNet / ModelScope
+  url: https://github.com/wenet-e2e/wespeaker
+  type: speaker
+  released: '2023'
+  params_b: 0.007
+  params_label: 7.2M
+  size_gb: 0.03
+  size_label: '~28 MB (ONNX)'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → speaker embedding'
+  think: '~'
+  bench: 'EER 0.66 (vox1-O)'
+  license: Apache-2.0 code
+  best_for: 'building block; pair with segmentation'
+  status: current
+
+- name: Sortformer-4spk-v2
+  org: NVIDIA
+  url: https://huggingface.co/nvidia/diar_streaming_sortformer_4spk-v2
+  type: speaker
+  released: '2025-06'
+  params_b: 0.08
+  params_label: ~80M? (GGUF 147 MB)
+  size_gb: 0.15
+  size_label: '~0.15 GB (GGUF 147 MB)'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → who spoke when (streaming, ≤4 spk)'
+  think: '~'
+  bench: 'DIHARD-3 19.7 † · CALLHOME 10.5'
+  license: CC-BY-4.0
+  best_for: 'low-latency open diarization ≤4 spk'
+  status: current
+
+- name: Nemotron-3-Diarization
+  org: NVIDIA
+  url: https://huggingface.co/nvidia/Nemotron-3-Diarization
+  type: speaker
+  released: '2026-09'
+  params_b: 0.099
+  params_label: 99M
+  size_gb: 0.1
+  size_label: '~0.1 GB (GGUF quants exist)'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → who spoke when (streaming, ≤8 spk)'
+  think: '~'
+  bench: 'DIHARD-3 12.7 · AMI SDM 11.1'
+  license: OpenMDW-1.1 (commercial OK)
+  best_for: 'best open streaming diarizer (DIY)'
+  status: current
+
+- name: MOSS-Transcribe-Diarize
+  org: OpenMOSS
+  url: https://github.com/OpenMOSS/MOSS-Transcribe-Diarize
+  type: speaker
+  released: '2026-05'
+  params_b: 0.9
+  params_label: 0.9B
+  size_gb: 0.9
+  size_label: '~0.9 GB int8'
+  context_raw: 0
+  context_label: '—'
+  modes: 'audio → diarized transcript (50+ langs)'
+  think: '~'
+  bench: 'UNVERIFIED (demo-class)'
+  license: Apache-2.0
+  best_for: 'joint ASR+diarize; not phone-proven'
+  status: demo
